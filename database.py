@@ -1,7 +1,7 @@
 import sqlite3
 
 def create_database():
-    """Creates the database and employee table"""
+    """Creates the cloud database and the employees table"""
     conn = sqlite3.connect("cloud_data.db")
     cursor = conn.cursor()
     
@@ -11,10 +11,12 @@ def create_database():
             name TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE,
             department TEXT NOT NULL,
+            phone TEXT NOT NULL,
+            location TEXT NOT NULL,
             date_added TEXT DEFAULT CURRENT_TIMESTAMP
         )
     """)
     
     conn.commit()
     conn.close()
-    print("✅ Database created successfully !")
+    print("✅ Cloud database initialized successfully!")
